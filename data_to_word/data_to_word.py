@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders.base import BaseLoader
 from langchain_text_splitters import RecursiveJsonSplitter
 from langchain_core.prompts import ChatPromptTemplate
-from loader import LoaderFactory
+from loader.factory import LoaderFactory
 from typing import Union
 from pathlib import Path
 
