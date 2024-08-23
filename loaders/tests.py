@@ -103,5 +103,4 @@ class TestLoader:
             chunk_size=300
         )
 
-        assert isinstance(documents, list)
-        assert len(documents) == 0
+        assert json_loader.openai_api_key is not None

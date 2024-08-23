@@ -13,7 +13,5 @@ class JSONLoader(BaseLoader):
         json_content = json.loads(file_binary_content.decode('utf-8'))
         splitter = RecursiveJsonSplitter(max_chunk_size=chunk_size)
         split_contents = splitter.split_json(json_data=json_content)
-        print(split_contents)
-        print(self.openai_api_key)
 
         return []
