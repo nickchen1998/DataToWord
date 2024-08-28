@@ -1,4 +1,4 @@
-from loaders.factory import LoaderFactory
+from datatoword.loaders.factory import LoaderFactory
 from langchain_core.documents import Document
 from typing import List
 

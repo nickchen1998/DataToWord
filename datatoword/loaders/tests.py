@@ -1,8 +1,6 @@
 import os
 
 import pytest
-from langchain_core.documents import Document
-from typing import List
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -18,7 +16,6 @@ class TestLoader:
             openai_api_key = os.getenv("OPENAI_API_KEY")
 
         return openai_api_key
-
 
     def test_json_loader(self, openai_api_key):
         file_name = "test_file.json"
@@ -92,7 +89,7 @@ class TestLoader:
         '''
         file_description = "Tech Innovators Inc. 的基本資訊。"
 
-        from loaders.json import JSONLoader
+        from datatoword.loaders.json import JSONLoader
 
         json_loader = JSONLoader(openai_api_key=openai_api_key)
 
