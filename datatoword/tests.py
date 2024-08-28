@@ -15,6 +15,9 @@ class TestDataToWord:
             load_dotenv(Path(__file__).resolve().parent.parent / ".env")
             openai_api_key = os.getenv("OPENAI_API_KEY")
 
+        if openai_api_key is None:
+            raise ValueError("pass openai_api_key or set OPENAI_API_KEY in environment variable")
+
         return openai_api_key
 
     def test_data_to_word(self, openai_api_key):
