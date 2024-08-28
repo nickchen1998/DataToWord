@@ -19,7 +19,7 @@ setup_kwargs = {
     'description': '',
     'long_description': '# DataToWord\n\n## 專案目的\n\n這是一個將資料轉換成文字的專案，可以協助你在進行 RAG 的過程中，將資料類型的檔案轉換成文字，方便後續進行段落查詢。\n\n目前支援的檔案有：\n\n- CSV\n- JSON\n\n## 使用方式\n\n### 安裝\n\n```bash\npip install datatoword\n```\nor\n\n```bash\npoetry add datatoword\n```\n\n### Quick Start\n\n```python\n```\n\n## poetry export requirements.txt\n\n```bash\npoetry export -f requirements.txt --output requirements.txt --without-hashes\n```',
     'author': 'nick',
-    'author_email': 'nick1998chen0725@gmail.com',
+    'author_email': 'nickchen1998@gmail.com',
     'maintainer': 'None',
     'maintainer_email': 'None',
     'url': 'None',
