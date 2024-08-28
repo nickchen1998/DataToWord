@@ -14,16 +14,38 @@
 目前支援的檔案有：
 
 - CSV
-- JSON
 
 
-### Quick Start
+## Quick Start
 
+- 建立 LangChain Document
 ```python
+from datatoword import DataToWord
+
+
+with open('data.csv', 'rb') as file:
+    file_binary_content = file.read()
+
+data_to_word = DataToWord()
+data_to_word.create_documents(
+    file_name='data.csv',
+    file_description='這是一個測試的檔案',
+    file_binary_content=file_binary_content
+)
 ```
 
-## poetry export requirements.txt
+- 取得轉換後的內文
+```python
+from datatoword import DataToWord
 
-```bash
-poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+with open('data.csv', 'rb') as file:
+    file_binary_content = file.read()
+
+data_to_word = DataToWord()
+data_to_word.create_content(
+    file_name='data.csv',
+    file_description='這是一個測試的檔案',
+    file_binary_content=file_binary_content
+)
 ```

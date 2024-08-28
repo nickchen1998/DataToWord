@@ -33,5 +33,12 @@ class DataToWord:
         )
         return documents
 
-    def create_content(self, chunk_size: int = 1000) -> List[str]:
-        return [doc.page_content for doc in self.create_documents(chunk_size)]
+    def create_content(
+            self,
+            file_name: str, file_binary_content: bytes, file_description: str, metadata: dict = None,
+            chunk_size: int = 1000
+    ) -> List[str]:
+        return [doc.page_content for doc in self.create_documents(
+            file_name=file_name, file_binary_content=file_binary_content, file_description=file_description,
+            metadata=metadata, chunk_size=chunk_size
+        )]
