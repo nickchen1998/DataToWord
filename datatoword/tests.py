@@ -1,10 +1,3 @@
-import os
-
-import pytest
-from dotenv import load_dotenv
-from pathlib import Path
-
-
 class TestDataToWord:
 
     def test_data_to_word(self, openai_api_key):

@@ -1,10 +1,3 @@
-import os
-
-import pytest
-from dotenv import load_dotenv
-from pathlib import Path
-
-
 class TestLoader:
 
     def test_json_loader(self, openai_api_key):
