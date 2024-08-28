@@ -7,7 +7,7 @@ from langchain_text_splitters import RecursiveJsonSplitter
 
 class JSONLoader(BaseLoader):
     def create_documents(
-            self, file_name: str, file_binary_content: bytes, file_description: str,
+            self, file_name: str, file_binary_content: bytes, file_description: str, metadata: dict = None,
             chunk_size: int = 300
     ) -> List[Document]:
         json_content = json.loads(file_binary_content.decode('utf-8'))

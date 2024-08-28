@@ -15,7 +15,7 @@ class BaseLoader(abc.ABC):
     @abc.abstractmethod
     def create_documents(
             self,
-            file_name: str, file_binary_content: bytes, file_description: str,
-            chunk_size: int = 1000
+            file_name: str, file_binary_content: bytes, file_description: str, metadata: dict = None,
+            chunk_size: int = 1000,
     ) -> List[Document]:
         pass
