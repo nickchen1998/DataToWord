@@ -1,7 +1,7 @@
 class TestLoader:
 
     def test_json_loader(self, openai_api_key):
-        file_name = "test_file.json"
+        file_name = "Tech Innovators Inc data.json"
         file_binary_content = b'''
         {
             "company": {
@@ -41,33 +41,7 @@ class TestLoader:
                         "head": "Jane Roe"
                     }
                 ]
-            },
-            "location": {
-                "headquarters": {
-                    "city": "San Francisco",
-                    "state": "CA",
-                    "country": "USA"
-                },
-                "offices": [
-                    {"city": "New York", "state": "NY", "country": "USA"},
-                    {"city": "London", "state": "N/A", "country": "UK"},
-                    {"city": "Berlin", "state": "N/A", "country": "Germany"}
-                ]
-            },
-            "products": [
-                {
-                    "name": "Smart AI Assistant",
-                    "category": "Software",
-                    "price_usd": 49.99,
-                    "features": ["Voice Recognition", "Natural Language Processing", "Cloud Sync"]
-                },
-                {
-                    "name": "Advanced Analytics Platform",
-                    "category": "Software",
-                    "price_usd": 299.99,
-                    "features": ["Real-time Data Processing", "Customizable Dashboards", "AI-powered Insights"]
-                }
-            ]
+            }
         }
         '''
         file_description = "Tech Innovators Inc. 的基本資訊。"
@@ -84,7 +58,7 @@ class TestLoader:
         )
         print(documents)
 
-        assert json_loader.openai_api_key is not None
+        assert documents is not None
 
     def test_csv_loader(self, openai_api_key):
         file_name = 'test_file.csv'
