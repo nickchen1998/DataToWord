@@ -7,11 +7,11 @@ from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 
 
 class JSONLoader(BaseLoader):
+
     def create_documents(
             self, file_name: str, file_binary_content: bytes, file_description: str, metadata: dict = None,
             chunk_size: int = 300
     ) -> List[Document]:
-        documents = []
         json_content = json.loads(file_binary_content.decode('utf-8'))
         if isinstance(json_content, list):
             datas = json_content
@@ -19,15 +19,7 @@ class JSONLoader(BaseLoader):
             splitter = RecursiveJsonSplitter(max_chunk_size=chunk_size)
             datas = splitter.split_json(json_data=json_content)
 
-        for data in datas:
-            messages = self.generate_messages(file_name, file_description, data)
-            ai_message = self.llm.invoke(messages)
-            document = Document(page_content=ai_message.content)
-            if metadata:
-                document.metadata = metadata
-            documents.append(document)
-
-        return documents
+        return self._generate_documents(file_name, file_description, datas, metadata)
 
     def parse_binary_content(self, file_binary_content: bytes):
         try:

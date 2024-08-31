@@ -7,27 +7,20 @@ from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 
 
 class CSVLoader(BaseLoader):
+
     def create_documents(
             self,
             file_name: str, file_binary_content: bytes, file_description: str, metadata: dict = None,
             chunk_size: int = 1000
     ) -> List[Document]:
-        documents = []
+        datas = []
         for row in self.parse_binary_content(file_binary_content):
             if not row or row[0].replace(" ", "") == "":
                 continue
+            else:
+                datas.append(row)
 
-            messages = self.generate_messages(file_name, file_description, row)
-            ai_message = self.llm.invoke(messages)
-            if "這是標頭" in ai_message.content:
-                continue
-
-            document = Document(page_content=ai_message.content)
-            if metadata:
-                document.metadata = metadata
-            documents.append(document)
-
-        return documents
+        return self._generate_documents(file_name, file_description, datas, metadata)
 
     def parse_binary_content(self, file_binary_content: bytes) -> list:
         try:
@@ -37,7 +30,7 @@ class CSVLoader(BaseLoader):
         except csv.Error as e:
             raise ValueError("無效的 CSV 內容") from e
 
-    def generate_messages(self, file_name: str, file_description: str, row: list) -> List[BaseMessage]:
+    def generate_messages(self, file_name: str, file_description: str, data) -> List[BaseMessage]:
         system_message = """
         你是一個 CSV 專家，請根據我提供給你的檔案描述，以及檔案名稱，將我給你的資料轉換成一個 300 字以內的敘述，
         並同時參考下列條件：
@@ -55,8 +48,8 @@ class CSVLoader(BaseLoader):
         human_message = """
         檔案名稱：{file_name}
         檔案描述：{file_description}
-        轉換前資料：{row}
-        """.format(file_name=file_name, file_description=file_description, row=row)
+        轉換前資料：{data}
+        """.format(file_name=file_name, file_description=file_description, data=data)
 
         return [
             SystemMessage(system_message),

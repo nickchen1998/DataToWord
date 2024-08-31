@@ -81,6 +81,6 @@ class TestLoader:
             chunk_size=300
         )
         for document in documents:
-            print(document.page_content)
+            print(document)
 
         assert documents is not None

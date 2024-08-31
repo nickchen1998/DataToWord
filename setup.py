@@ -15,7 +15,7 @@ install_requires = \
 
 setup_kwargs = {
     'name': 'datatoword',
-    'version': '0.6.0',
+    'version': '0.7.0',
     'description': '一個將資料轉換為文本的小工具，可提升 RAG 查詢的效率。',
     'long_description': "# DataToWord\n\n## Built With\n\n- [Python](https://www.python.org/)\n- [Poetry](https://python-poetry.org/)\n- [LangChain](https://www.langchain.com/)\n- [OpenAI](https://platform.openai.com/docs/models)\n\n## 專案目的\n\n這是一個將資料轉換成文字的專案，可以協助你在進行 RAG 的過程中，將資料類型的檔案轉換成文字，提升轉換為向量後查詢的結果。\n\n目前支援的檔案有：\n\n- CSV\n- JSON\n\n\n## Quick Start\n\n- 建立 LangChain Document\n```python\nfrom datatoword import DataToWord\n\n\nwith open('data.csv', 'rb') as file:\n    file_binary_content = file.read()\n\ndata_to_word = DataToWord()\ndata_to_word.create_documents(\n    file_name='data.csv',\n    file_description='這是一個測試的檔案',\n    file_binary_content=file_binary_content\n)\n```\n\n- 取得轉換後的內文\n```python\nfrom datatoword import DataToWord\n\n\nwith open('data.csv', 'rb') as file:\n    file_binary_content = file.read()\n\ndata_to_word = DataToWord()\ndata_to_word.create_content(\n    file_name='data.csv',\n    file_description='這是一個測試的檔案',\n    file_binary_content=file_binary_content\n)\n```\n",
     'author': 'nick',
