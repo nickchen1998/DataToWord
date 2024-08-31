@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "datatoword"
-version = "0.5.0"
-description = ""
+version = "0.6.0"
+description = "一個將資料轉換為文本的小工具，可提升 RAG 查詢的效率。"
 authors = ["nick <nickchen1998@gmail.com>"]
 readme = "README.md"
 license = "Apache-2.0"
