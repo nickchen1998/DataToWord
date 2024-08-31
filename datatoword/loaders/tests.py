@@ -56,7 +56,8 @@ class TestLoader:
             file_description=file_description,
             chunk_size=300
         )
-        print(documents)
+        for document in documents:
+            print(document)
 
         assert documents is not None
 
@@ -79,6 +80,7 @@ class TestLoader:
             file_description=file_description,
             chunk_size=300
         )
-        print(documents)
+        for document in documents:
+            print(document.page_content)
 
         assert documents is not None
