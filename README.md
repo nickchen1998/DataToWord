@@ -16,6 +16,17 @@
 - CSV
 - JSON
 
+## Pass OpenAI API Key
+
+在使用這個專案前，請將您的 OpenAI API Key 設定給 OPENAI_API_KEY 這個環境變數，或是參考下方的範例將 key 帶入到物件中。
+
+```python
+from datatoword import DataToWord
+
+data_to_word = DataToWord(
+    openai_api_key="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+)
+```
 
 ## Quick Start
 
